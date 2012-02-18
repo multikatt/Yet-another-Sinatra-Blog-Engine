@@ -64,3 +64,12 @@ post '/login' do
     end
   end
 end
+
+post '/newpost' do
+  post = Post.new
+  post.title = params['title']
+  post.text = params['maintext']
+  post.save
+  flash[:notice] = "Post added"
+  redirect '/'
+end

@@ -4,4 +4,5 @@
   %p Nothing posted yet
 - else
   - @posts.each do |post|
-    %p post.title
+    %p= post.title
+    %p= post.text
