@@ -5,9 +5,5 @@
       = @title
   %body
     #content
-      - if admin?
-        you are logged in
-        <a href="/logout">logout</a>
-      - else
-        <a href="/admin">log in</a>
+      =styled_flash
       =yield

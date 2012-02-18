@@ -19,6 +19,8 @@ end
 
 DataMapper.auto_upgrade!
 
+enable :sessions
+
 helpers do
   def admin? ; Admin.all(:user => request.cookies["user"]).any? and
                Admin.all(:token => request.cookies["token"]).any? ; end
@@ -46,6 +48,7 @@ post '/login' do
     if admins.user == params['username'] && admins.pass == params['password']
       response.set_cookie("user", admins.user)
       response.set_cookie("token", admins.token)
+      flash[:notice] = "Signed in successfully"
       redirect '/'
     else
       puts "nope"

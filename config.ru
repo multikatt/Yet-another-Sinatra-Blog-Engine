@@ -3,6 +3,7 @@ path = File.expand_path "../", __FILE__
 
 require "rubygems"
 require "sinatra"
+require "sinatra/flash"
 require "data_mapper"
 require "haml"
 require "#{path}/blog.rb"
