@@ -1,3 +1,7 @@
-%title
-  = @title
-%p hello
+- if admin?
+  <a href="/newpost">New post</a>
+- if @posts.empty?
+  %p Nothing posted yet
+- else
+  - @posts.each do |post|
+    %p post.title

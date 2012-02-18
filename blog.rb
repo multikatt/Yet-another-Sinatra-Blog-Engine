@@ -24,10 +24,12 @@ enable :sessions
 helpers do
   def admin? ; Admin.all(:user => request.cookies["user"]).any? and
                Admin.all(:token => request.cookies["token"]).any? ; end
+  def protected! ; halt [ 401, 'Not authorized' ] unless admin? ; end
 end
 
 get '/' do
   @title = "Kattfest blog"
+  @posts = Post.all
   haml :home
 end
 
@@ -42,6 +44,12 @@ get '/logout' do
   redirect '/'
 end
 
+get '/newpost' do
+  protected!
+  @title = "New post"
+  haml :newpost
+end
+
 post '/login' do
   a = Admin.all
   a.each do |admins|
@@ -51,9 +59,8 @@ post '/login' do
       flash[:notice] = "Signed in successfully"
       redirect '/'
     else
-      puts "nope"
+      flash[:notice] = "Failed to sign in"
       redirect '/'
     end
   end
-
 end
