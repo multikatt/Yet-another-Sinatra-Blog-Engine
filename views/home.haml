@@ -4,6 +4,7 @@
   %p Nothing posted yet
 - else
   - @posts.each do |post|
-    %p= post.created_at
-    %p= post.title
-    %p= post.text
+    #post
+      #date= post.created_at
+      %h2= post.title
+      %p= post.text

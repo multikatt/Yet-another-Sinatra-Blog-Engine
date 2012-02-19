@@ -1,0 +1,32 @@
+body {
+    color: #000;
+}
+
+#header {
+    text-align: center;
+}
+
+#header h1 {
+    font-size: 40px;
+}
+
+#content {
+
+    max-width: 52em;
+    min-width: 27em;
+    margin: auto;
+}
+
+#post {
+    background: #eee;
+    }
+    
+#post #date {
+    padding: 5px;
+    float: right;
+
+    }
+
+#content.id {
+    text-align: right;
+}

@@ -1,10 +1,12 @@
 !!!
 %html
   %head
+    %link(rel="stylesheet" href="css/stylesheet.css")
     %title
       = @title
-      %link(rel="stylesheet" href="css/stylesheet.css")
   %body
+    #header
+      %h1 Kattfest
     #content
       =styled_flash
       =yield
