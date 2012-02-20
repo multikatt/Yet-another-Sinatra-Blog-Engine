@@ -11,10 +11,21 @@ helpers do
   def protected! ; halt [ 401, 'Not authorized' ] unless admin? ; end
 end
 
+class String
+  def toSlug
+    self.split(' ').map {|w| w.capitalize}.join
+  end
+end
+
 get '/' do
   @title = "Kattfest blog"
   @posts = Post.all :order => :created_at.desc
   haml :home
+end
+
+get '/:slug' do
+  @post = Post.all :slug => params[:slug]
+  haml :showpost
 end
 
 get '/admin' do
@@ -53,6 +64,7 @@ post '/newpost' do
   post = Post.new
   post.title = params['title']
   post.text = params['maintext']
+  post.slug = params['title'].toSlug
   post.save
   flash[:notice] = "Post added"
   redirect '/'

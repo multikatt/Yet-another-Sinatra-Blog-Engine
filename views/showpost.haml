@@ -1,0 +1,8 @@
+- if @post.empty?
+  %p No such post
+- else
+  #post
+    #datetime
+      #date= @post.get(1).created_at.strftime("%a %d %b %Y")
+      #time= @post.get(1).created_at.strftime("%H:%M")
+    %p= @post.get(1).text
