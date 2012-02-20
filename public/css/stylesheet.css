@@ -19,6 +19,7 @@ body {
 
 #post {
     background: #eee;
+    min-height: 50px;
     }
     
 #post #datetime {
