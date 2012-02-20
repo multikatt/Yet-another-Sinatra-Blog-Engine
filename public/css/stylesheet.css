@@ -21,12 +21,13 @@ body {
     background: #eee;
     }
     
-#post #date {
+#post #datetime {
     padding: 5px;
     float: right;
-
+    text-align: center;
     }
 
 #content.id {
     text-align: right;
 }
+
