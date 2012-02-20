@@ -29,7 +29,7 @@ end
 
 get '/' do
   @title = "Kattfest blog"
-  @posts = Post.all
+  @posts = Post.all :order => :created_at.desc
   haml :home
 end
 
