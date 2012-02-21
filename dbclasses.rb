@@ -12,7 +12,7 @@ class Admin
   include DataMapper::Resource
   property :id, Serial
   property :user, String
-  property :pass, String
+  property :pass, BCryptHash
   property :token, String
 end
 

@@ -8,5 +8,5 @@
       #datetime
         #date= post.created_at.strftime("%a %d %b %Y")
         #time= post.created_at.strftime("%H:%M")
-      %a{:href => "#{post.slug}"} #{post.title}
+      %a{:href => "post/#{post.slug}"} #{post.title}
       %p= post.text

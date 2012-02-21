@@ -23,7 +23,7 @@ get '/' do
   haml :home
 end
 
-get '/:slug' do
+get '/post/:slug' do
   @post = Post.all :slug => params[:slug]
   haml :showpost
 end
@@ -48,16 +48,17 @@ end
 post '/login' do
   a = Admin.all
   a.each do |admins|
+    puts admins.user
+    puts admins.pass
     if admins.user == params['username'] && admins.pass == params['password']
       response.set_cookie("user", admins.user)
       response.set_cookie("token", admins.token)
       flash[:notice] = "Signed in successfully"
       redirect '/'
-    else
-      flash[:notice] = "Failed to sign in"
-      redirect '/'
     end
   end
+  flash[:notice] = "Failed to sign in"
+  redirect '/'
 end
 
 post '/newpost' do
