@@ -3,6 +3,10 @@ body {
     color: #000;
 }
 
+a {
+    text-decoration: none;
+    }
+
 #header {
     text-align: center;
 }
@@ -23,13 +27,23 @@ body {
     min-height: 50px;
     }
     
+#post a {
+    padding: 10px 5px;
+    font-size: 1.5em;
+    }
+    
 #post #datetime {
     padding: 5px;
     float: right;
     text-align: center;
     }
 
+#post p {
+    padding: 0px 5px 10px;
+    }
+
 #content.id {
     text-align: right;
 }
+
 
