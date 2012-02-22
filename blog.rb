@@ -48,8 +48,6 @@ end
 post '/login' do
   a = Admin.all
   a.each do |admins|
-    puts admins.user
-    puts admins.pass
     if admins.user == params['username'] && admins.pass == params['password']
       response.set_cookie("user", admins.user)
       response.set_cookie("token", admins.token)
