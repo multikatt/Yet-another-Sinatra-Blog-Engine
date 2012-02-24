@@ -24,7 +24,7 @@ get '/' do
 end
 
 get '/post/:slug' do
-  @post = Post.all :slug => params[:slug]
+  @post = Post.first :slug => params[:slug]
   haml :showpost
 end
 

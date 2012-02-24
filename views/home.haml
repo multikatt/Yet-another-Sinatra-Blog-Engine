@@ -5,8 +5,8 @@
 - else
   - @posts.each do |post|
     #post
+      %a{:href => "post/#{post.slug}"} #{post.title}
       #datetime
         #date= post.created_at.strftime("%a %d %b %Y")
         #time= post.created_at.strftime("%H:%M")
-      %a{:href => "post/#{post.slug}"} #{post.title}
       %p= post.text
