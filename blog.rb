@@ -45,6 +45,30 @@ get '/newpost' do
   haml :newpost
 end
 
+get '/edit/:slug' do
+  @post = Post.first :slug => params[:slug]
+  haml :editpost
+end
+
+put '/edit' do
+  post = Post.first :slug => params[:slug]
+  if post.nil?
+    flash[:notice] = "No such post!"
+    redirect '/'
+  end
+  post.title = params[:title]
+  post.text = params[:maintext]
+  post.updated_at = Time.now
+  if post.save do
+    flash[:notice] = "Post updated"
+    redirect '/'
+  else
+    flash[:notice] = "Something went wrong"
+    redirect '/'
+  end
+
+end
+
 post '/login' do
   a = Admin.all
   a.each do |admins|

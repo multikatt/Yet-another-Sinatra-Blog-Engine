@@ -1,0 +1,9 @@
+%form(action="/edit" method="post")
+  %input#put(type="hidden" name="_method" value="put")
+  %input#slug(type="hidden" name="slug" value="#{@post.slug}")
+  %label(for="title")Title:
+  %input#title(name="title" value="#{@post.title}")
+  %label(for="maintext")Main text:
+  %textarea(name="maintext")
+    = @post.text
+  %input(type="submit" value="submit")
