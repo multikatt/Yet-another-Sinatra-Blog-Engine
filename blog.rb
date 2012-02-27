@@ -46,27 +46,37 @@ get '/newpost' do
 end
 
 get '/edit/:slug' do
-  @post = Post.first :slug => params[:slug]
-  haml :editpost
+  if admin?
+    @post = Post.first :slug => params[:slug]
+    haml :editpost
+  else
+    status 403
+    flash[:notice] = "Forbidden"
+    redirect '/'
+  end
 end
 
 put '/edit' do
-  post = Post.first :slug => params[:slug]
-  if post.nil?
-    flash[:notice] = "No such post!"
-    redirect '/'
-  end
-  post.title = params[:title]
-  post.text = params[:maintext]
-  post.updated_at = Time.now
-  if post.save
-    flash[:notice] = "Post updated"
-    redirect '/'
+  if admin?
+    post = Post.first :slug => params[:slug]
+    if post.nil?
+      flash[:notice] = "No such post!"
+      redirect '/'
+    end
+    post.title = params[:title]
+    post.text = params[:maintext]
+    post.updated_at = Time.now
+    if post.save
+      flash[:notice] = "Post updated"
+      redirect '/'
+    else
+      flash[:notice] = "Something went wrong"
+      redirect '/'
+    end
   else
-    flash[:notice] = "Something went wrong"
-    redirect '/'
+    status 403
+    flash[:notice] = "Forbidden"
   end
-
 end
 
 post '/login' do
