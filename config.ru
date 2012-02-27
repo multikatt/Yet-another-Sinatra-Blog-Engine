@@ -8,7 +8,7 @@ require "data_mapper"
 require "haml"
 require "#{path}/blog.rb"
 
-if ENV['RACK_ENV'] == 'production' do
+if ENV['RACK_ENV'] == 'production'
   set :enviroment, :production
   set :port, 4567
   disable :run, :reload

@@ -59,7 +59,7 @@ put '/edit' do
   post.title = params[:title]
   post.text = params[:maintext]
   post.updated_at = Time.now
-  if post.save do
+  if post.save
     flash[:notice] = "Post updated"
     redirect '/'
   else
