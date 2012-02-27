@@ -8,4 +8,10 @@ require "data_mapper"
 require "haml"
 require "#{path}/blog.rb"
 
+if ENV['RACK_ENV'] == 'production' do
+  set :enviroment, :production
+  set :port, 4567
+  disable :run, :reload
+end
+
 run Sinatra::Application
