@@ -55,6 +55,7 @@ GEM
     haml (3.1.4)
     json (1.6.5)
     json_pure (1.6.5)
+    kramdown (0.13.5)
     multi_json (1.0.4)
     rack (1.4.1)
     rack-protection (1.2.0)
@@ -76,5 +77,6 @@ DEPENDENCIES
   data_mapper
   dm-sqlite-adapter
   haml
+  kramdown
   sinatra
   sinatra-flash

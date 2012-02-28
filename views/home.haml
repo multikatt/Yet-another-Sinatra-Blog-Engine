@@ -11,4 +11,5 @@
       #datetime
         #date= post.created_at.strftime("%a %d %b %Y")
         #time= post.created_at.strftime("%H:%M")
-      %p= post.text
+      :markdown
+        #{post.text}

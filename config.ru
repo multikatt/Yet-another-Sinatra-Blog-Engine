@@ -7,6 +7,7 @@ require "sinatra/flash"
 require "data_mapper"
 require "haml"
 require "#{path}/blog.rb"
+require "#{path}/mdfilter.rb"
 
 if ENV['RACK_ENV'] == 'production'
   set :enviroment, :production
