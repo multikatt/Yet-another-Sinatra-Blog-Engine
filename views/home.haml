@@ -1,13 +1,17 @@
 - if admin?
-  <a href="/newpost">New post</a>
+  #adminheader
+    %ul
+      %li <a href="/newpost">New post</a>
+      %li logged in as #{request.cookies["user"]} (<a href="/logout">logout</a>)
 - if @posts.empty?
   %p Nothing posted yet
 - else
   - @posts.each do |post|
-    #post
-      %a{:href => "post/#{post.slug}"} #{post.title}
-      - if admin?
-        %a{:href => "edit/#{post.slug}"} edit post
+    .post
+      #posttitle
+        %a{:href => "post/#{post.slug}"} #{post.title}
+        - if admin?
+          %a{:href => "edit/#{post.slug}"} edit post
       #datetime
         #date= post.created_at.strftime("%a %d %b %Y")
         #time= post.created_at.strftime("%H:%M")

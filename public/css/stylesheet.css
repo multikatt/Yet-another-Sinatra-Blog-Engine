@@ -21,8 +21,17 @@ form label {
     margin-bottom: 0.5em;
 }
 
+#adminheader {
+    text-align: right;
+}
+
+#adminheader ul li {
+    display: inline;
+}
+
 #header {
     text-align: center;
+    margin: 10px;
 }
 
 #header h1 {
@@ -35,23 +44,24 @@ form label {
     margin: auto;
 }
 
-#post {
+.post {
     background: #eee;
-    min-height: 50px;
+    min-height: 100px;
+    margin: 5px 0px;
 }
     
-#post a {
+#posttitle a {
     padding: 10px 5px;
     font-size: 1.5em;
 }
     
-#post #datetime {
+.post #datetime {
     padding: 5px;
     float: right;
     text-align: center;
 }
 
-#post p {
+.post p {
     padding: 0px 5px 10px;
 }
 
