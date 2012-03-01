@@ -6,6 +6,7 @@
     %input#title(name="title" value="#{@post.title}")
   %p
     %label(for="maintext")Main text:
-    %textarea#posttext(name="maintext")
-      = @post.text
+    = find_and_preserve do
+      %textarea#posttext(name="maintext")
+        = @post.text
   %input(type="submit" value="submit")

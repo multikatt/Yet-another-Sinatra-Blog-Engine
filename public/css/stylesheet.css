@@ -8,8 +8,6 @@ a {
 }
 
 textarea {
-    white-space: nowrap;
-    overflow: auto;
     height: 250px;
     width:  800px;
     resize: none;
