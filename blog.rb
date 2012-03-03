@@ -9,6 +9,18 @@ helpers do
   def admin? ; Admin.all(:user => request.cookies["user"]).any? and
                Admin.all(:token => request.cookies["token"]).any? ; end
   def protected! ; halt [ 401, 'Not authorized' ] unless admin? ; end
+  def googleanalytics!
+    begin
+      file = File.open("ganalytics.js", "r")
+      result = ""
+      while (line = file.gets)
+        result += line
+      end
+      file.close
+      return result
+    rescue
+    end
+  end
 end
 
 class String
