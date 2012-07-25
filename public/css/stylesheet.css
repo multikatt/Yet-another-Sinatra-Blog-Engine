@@ -11,7 +11,7 @@ a:visited {
     color: #4B5970;
 }
 
-a, a:link {
+a:link {
     color: #06C:
 }
 
@@ -53,6 +53,7 @@ form label {
 #posttitle a {
     padding: 10px 5px;
     font-size: 1.5em;
+    text-decoration: none;
 }
 
 .post {
@@ -65,6 +66,7 @@ form label {
     font-weight: bold;
     background: #ecc;
     padding: 5px;
+    margin: 0.5em;
     float: right;
     text-align: center;
 }
@@ -76,6 +78,16 @@ form label {
 .post ul {
     margin: 3px 40px;
     list-style: disc;
+}
+
+.post pre {
+    border: 1px;
+    background-color: #ffffff;
+}
+
+code {
+    background-color: #1b1d1e;
+    color: #ffffff;
 }
 
 #content.id {
