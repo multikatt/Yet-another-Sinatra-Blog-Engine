@@ -82,12 +82,14 @@ form label {
 
 .post pre {
     border: 1px;
-    background-color: #ffffff;
+    border-style: dashed;
+    padding: 0.5em;
+    margin: 0.5em;
+    margin-right: 150px;
+    background: #fff;
 }
 
 code {
-    background-color: #1b1d1e;
-    color: #ffffff;
 }
 
 #content.id {
