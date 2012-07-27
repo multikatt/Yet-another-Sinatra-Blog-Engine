@@ -28,11 +28,16 @@ form label {
 }
 
 #adminheader {
-    text-align: right;
+    position:relative;
+    top:-30px;
+    left:-10px;
+    text-decoration:none;
 }
 
 #adminheader ul li {
     display: inline;
+    float:right;
+    margin: 1px;
 }
 
 #header {
@@ -79,6 +84,8 @@ form label {
     margin: 0.5em;
     float: right;
     text-align: center;
+    border-radius: 5px;
+    border: 1px solid #000;
 }
 
 .post p {

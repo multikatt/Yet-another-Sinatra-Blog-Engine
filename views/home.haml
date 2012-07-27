@@ -1,8 +1,12 @@
 - if admin?
   #adminheader
     %ul
-      %li <a href="/newpost">New post</a>
       %li logged in as #{request.cookies["user"]} (<a href="/logout">logout</a>)
+      %li <a href="/newpost">New post</a> 
+- else
+  #adminheader
+    %ul
+      %li <a href="/admin">Log in</a>
 - if @posts.empty?
   %p Nothing posted yet
 - else
